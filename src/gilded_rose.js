@@ -10,6 +10,7 @@ class Shop {
     this.items = items;
   }
   updateQuality() {
+    //cycling through all items
     for (var i = 0; i < this.items.length; i++) {
       if (
         this.items[i].name != 'Aged Brie' &&
