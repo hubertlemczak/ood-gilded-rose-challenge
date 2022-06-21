@@ -37,6 +37,14 @@ describe('Gilded Rose', function () {
     expect(result[0].quality).toEqual(1);
   });
 
+  it('Aged Brie cannot be > 50', () => {
+    const gildedRose = new Shop([new Item('Aged Brie', -1, 49)]);
+    const result = gildedRose.updateQuality();
+    expect(result[0].name).toEqual('Aged Brie');
+    expect(result[0].sellIn).toEqual(-2);
+    expect(result[0].quality).toEqual(50);
+  });
+
   it('Aged Brie after sellIn', () => {
     const gildedRose = new Shop([new Item('Aged Brie', 2, 0)]);
     gildedRose.updateQuality();
@@ -87,6 +95,14 @@ describe('Gilded Rose', function () {
     expect(result[0].name).toEqual('Backstage passes to a TAFKAL80ETC concert');
     expect(result[0].sellIn).toEqual(14);
     expect(result[0].quality).toEqual(21);
+  });
+
+  it('Backstage passes to a TAFKAL80ETC concert quality cannot be > 50', () => {
+    const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49)]);
+    const result = gildedRose.updateQuality();
+    expect(result[0].name).toEqual('Backstage passes to a TAFKAL80ETC concert');
+    expect(result[0].sellIn).toEqual(4);
+    expect(result[0].quality).toEqual(50);
   });
 
   it('Backstage passes to a TAFKAL80ETC concert sellIn < 11', () => {
