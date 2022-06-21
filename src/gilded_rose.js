@@ -19,6 +19,10 @@ class Shop {
           // 'Sulfuras, Hand of Ragnaros' properties never change
           if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
             this.items[i].quality = this.items[i].quality - 1;
+            // 'Conjured Mana Cake' degrades x2 faster
+            if (this.items[i].name.includes('Conjured')) {
+              this.items[i].quality = this.items[i].quality - 1;
+            }
           }
         }
       } else {
@@ -53,6 +57,10 @@ class Shop {
               // 'Sulfuras, Hand of Ragnaros' properties never change
               if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
                 this.items[i].quality = this.items[i].quality - 1;
+                // 'Conjured Mana Cake' degrades x2 faster
+                if (this.items[i].name.includes('Conjured')) {
+                  this.items[i].quality = this.items[i].quality - 1;
+                }
               }
             }
             // if item is 'Backstage passes to a TAFKAL80ETC concert' quality will be 0 as passed it's sellIn date
@@ -67,7 +75,6 @@ class Shop {
         }
       }
     }
-
     return this.items;
   }
 }
