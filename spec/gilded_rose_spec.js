@@ -150,11 +150,11 @@ describe('Gilded Rose', function () {
   });
 
   it('Conjured Mana Cake quality cant be < 0', () => {
-    const gildedRose = new Shop([new Item('Conjured Mana Cake', 1, 20)]);
+    const gildedRose = new Shop([new Item('Conjured Mana Cake', 1, 5)]);
     gildedRose.updateQuality();
     const result = gildedRose.updateQuality();
     expect(result[0].name).toEqual('Conjured Mana Cake');
     expect(result[0].sellIn).toEqual(-1);
-    expect(result[0].quality).toEqual(14);
+    expect(result[0].quality).toEqual(0);
   });
 });
